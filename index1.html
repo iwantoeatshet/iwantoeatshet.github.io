@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" class="ng-scope">
+	<head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title></title>
+    <!--人员进出管控系统	-->
+
+    <link rel="stylesheet" type="text/css" href="lib/angular/angular-confirm.css?v=1.0">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="lib/cropper/cropper.min.css?v=1">
+    <link rel="stylesheet" type="text/css" href="lib/shards/shards.min.css?v=1">
+    <link rel="stylesheet" href="lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="style/styles.css?v=20201218">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-treeview/bootstrap-treeview.css">
+    
+	<script src="lib/new_file1.js"></script>
+	<script src="lib/new_file.js"></script>
+	<style id="__WXWORK_INNER_SCROLLBAR_CSS">::-webkit-scrollbar { width: 12px !important; height: 12px !important; }::-webkit-scrollbar-track:vertical {  }::-webkit-scrollbar-thumb:vertical { background-color: rgba(136, 141, 152, 0.5) !important; border-radius: 10px !important; background-clip: content-box !important; border:2px solid transparent !important; } ::-webkit-scrollbar-track:horizontal {  }::-webkit-scrollbar-thumb:horizontal { background-color: rgba(136, 141, 152, 0.5) !important; border-radius: 10px !important; background-clip: content-box !important; border:2px solid transparent !important; } ::-webkit-resizer { display: none !important; }</style>
+	<style type="text/css">
+    #box{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(/img/card-bg.png);
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.25;
+        }
+        .card {
+    background-color: #fff;
+    border: none;
+    border-radius: .625rem;
+    box-shadow: 0 0.46875rem 2.1875rem rgb(90 97 105 / 10%), 0 0.9375rem 1.40625rem rgb(90 97 105 / 10%), 0 0.25rem 0.53125rem rgb(90 97 105 / 12%), 0 0.125rem 0.1875rem rgb(90 97 105 / 10%);
+}
+        .ctm-panel:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../assets/card-bg.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.25;
+}
+	</style>
+    
+
+	
+</head>
+
+<body ng-controller="MainCtrl" class="ng-scope">
+<!-- ngView: --><div ng-view="" ng-class="slide" ng-show="pageReady" class="main-slide ng-scope"><div class="pages-content welcome__form page_passport ncu_background ng-scope" data-ng-init="pageInit()">
+    <div class="container" id="container">
+        <div class="page d-flex justify-content-center align-items-center flex-column passport_panel" data-page="welcome">
+            <div class="page-box">
+                <div class="page-panel">
+                    <div class="row">
+                        <div class="col-12 text-center my-3">
+                            <span class="title page-title">南昌大学电子ID</span>
+							<div id="times" style="color: white;">
+                        </div>
+                    </div>
+                    <div class="card passport_card mb-3 user-info-card green" style="margin:10px !important">
+                        <div class="bg-wave"  id="box">
+                            <div class="wave1"></div>
+                            <div class="wave2"></div>
+                            <div class="wave3"></div>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col p-0">
+                                    <div class="col-12">
+                                        <label for="name" class="col-form-label card-label">姓名</label>
+                                        <p class="col-form-text d-inline-block pl-3 ng-binding" id="username">熊梅</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="sex" class="col-form-label card-label">性别</label>
+                                        <p class="col-form-text d-inline-block pl-3 ng-binding" id="password">男</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="col-form-label card-label ng-hide" for="number" ng-show="passport.userType=='1'">学号</label>
+                                        <label class="col-form-label card-label" for="number" ng-show="passport.userType!='1'">工号</label>
+                                        <p class="col-form-text d-inline-block pl-3 ng-binding">300100062</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="avatar-img-panel">
+                                        <img id="avatar-img" src="img/朱光纪.jpg" class="photo w-100">
+                                    </div>
+                                    <div class="modal" id="avatar_modal" tabindex="-1" role="dialog" aria-labelledby="avatar_modal-Label" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body p-0">
+                                                    <img id="cropper" class="w-100" src="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="card-label" for="mobile">手机号</label>
+                                    <p class="col-form-text d-inline-block pl-3 ng-binding" id="SJH">18679185551</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="card-label" for="idCard">身份证号</label>
+                                    <p class="col-form-text d-inline-block pl-3 ng-binding" id="SFZ">360102197232285345</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 ng-hide" ng-show="passport.userType=='1'">
+                                    <label class="card-label mt-2 mb-0" for="class">班级</label>
+                                    <p class="col-form-text d-inline p-3 ng-binding"> 级  </p>
+                                </div>
+                                <div class="col-12" ng-show="passport.userType!='1'">
+                                    <label class="card-label mt-2 mb-0" for="deptId">部门</label>
+                                    <p class="col-form-text d-inline p-3 ng-binding">后勤服务集团</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="card mb-3 overflow-hidden" style="margin-left: 10px;margin-right: 10px;background-color:#17c671;width: 100%;">
+                        <div class="card-body p-3 ctm-panel">
+                            <div class="f-row align-items-center ctm-box" style="color:white">
+                                <span class="title" >
+                                    昌通码
+                                </span >
+                                （<span class="message"  >绿码<span class="loading"></span></span>）
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3 overflow-hidden" style="margin-left: 10px;margin-right: 10px">
+                        <div class="card-body p-0">
+                            <div class="d-flex f-row align-items-center campus-panel">
+                                <div class="campus-box campus_id-100002 active">
+                                    <span>前湖北</span>
+                                </div>
+                                <div class="campus-box campus_id-100004 active">
+                                    <span>前湖南</span>
+                                </div>
+                                <div class="campus-box campus_id-100001 active">
+                                    <span>青山湖</span>
+                                </div>
+                                <div class="campus-box campus_id-100003 active">
+                                    <span>东湖</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3 px-3 text-center font-weight-bold color-black">
+                                        <span class="stuNoentry" style="display: none; color: #ff4222;">未获得许可，如在获得批准的返校日出现，请核实是否已在返校系统中填写行程</span>
+                                        <span class="noentry" style="display: none; color: #ff4222;">当前无许可，请联系学校人事部门</span>
+                                        <span class="unsafe" style="display: none; color: #ff4222;">该用户不在人事处返昌人员隔离完成信息表中</span>
+                                        <span class="nopassport" style="display: none; color: #ff4222;">通行证失效</span>
+                                        <span class="epidemicArea" style="display: none; color: #ff4222;">由重点地区入赣返赣，但未满14天的人员</span>
+                                        <span class="redcode" style="display: none; color: #ff4222;">红色不代表您的健康状况，仅说明按照相关规定，您暂时不能入校。</span>
+                                        <span class="isSignSafeResult" style="display: none; color: #ff4222;"></span>
+                                    </div>
+                                    <div class="qr-code-canvas">
+										<!-- 二维码生成 -->
+                                        <div class="canvas text-center py-4" style=" min-height: 180px; ">
+											<div id="Article-content" width="180" height="180">
+											<img src="img/二维码.png"  width="180" height="180">
+											</div>
+                                    </div>
+                                    <div class="my-3 px-3 text-center font-weight-bold color-black">
+                                        <span class="" style="">红码不表示您的健康状况。仅说明按照相关规定，暂时不能入校。</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-box">
+                <div class="page-panel">
+                    <!--<div class="align-items-center my-4"><button href="#" class="btn btn-light btn-block" ng-click="goto_list_approved()"><span class="text">出行记录</span></button></div>-->
+                    <!--<div class="align-items-center my-4"><button href="#" class="btn btn-light btn-block" ng-click="goto_gate_sign()"><span class="text">健康打卡</span></button></div>-->
+                    <!-- ngIf: userRoleId == 1002 || userRoleId == 1003 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    <!-- <p id="version" style="font-size: 8px;position: fixed;top: 0;right: 0;<m>	</m>argin: 0; ">v.1.0.8</p> -->
+<!--<p id="reset" style="font-size: 8px;position: fixed;bottom: 0;right: 0;margin: 0; ">测试</p>-->
+ <script type="text/javascript">
+  $(function(){
+    //   debugger
+    //     //获得传过来的login与在数据库中对应的表单
+    //     var paras = location.search;            //search获得地址中的参数，内容为'?itemId=12'
+    //     var result = paras.match(/[^\?&]*=[^&]*/g);     //match是字符串中符合的字段一个一个取出来，result中的值为['login=xx','table=admin']
+    //     paras = {};                    //让paras变成没有内容的json对象
+    //     for(i in result){
+    //         var temp = result[i].split('=');    //split()将一个字符串分解成一个数组,两次遍历result中的值分别为['itemId','xx']
+    //      paras[temp[0]] = temp[1];
+    //     }
+    var searchUrl = window.location.href;
+    var searchData = searchUrl.split("="); //截取 url中的“=”,获得“=”后面的参数  
+    var itemId = decodeURI(searchData[1]); //decodeURI解码  
+    var password = decodeURI(searchData[2]); //decodeURI解码  
+   var SJH = decodeURI(searchData[3]); //decodeURI解码  
+      var SFZ = decodeURI(searchData[4]); //decodeURI解码  
+      var searchUrl =  encodeURI("index.html");
+        if(itemId == "undefined"){
+             location.href = searchUrl;
+        }else if(password == "undefined"){
+             location.href = searchUrl;
+        }
+         else if(SJH == "undefined"){
+             location.href = searchUrl;
+        }
+         else if(SFZ == "undefined"){
+             location.href = searchUrl;
+        }else{
+          $("#username").html(itemId);
+          $("#password").html(password);
+          $("#SJH").html(SJH);
+          $("#SFZ").html(SFZ);
+          $("#avatar-img").attr('src',"img/"+itemId+".jpg");
+        }
+
+    // var params = getUrlVars();
+      
+    //     var itemId = params.username;     //根据参数名"itemId"，获取参数值
+    //     var password = params.password;     //根据参数名"itemId"，获取参数值
+    //     $("#username").html(itemId);
+    //       $("#password").html(password);
+    //     //   avatar-img
+    //       $("#avatar-img").attr('src',"img/"+username+".jpg");
+  })
+ 
+ var color=":| ";
+            color=color.split("|");
+	 function init() {
+	     //Article-content 为显示二维码的div id
+	     $("#Article-content").qrcode({
+	                      render : "canvas",    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
+	                      text: "11472890441230375563",    //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
+	                      width : "180",               //二维码的宽度
+	                      height : "180",              //二维码的高度
+	                     background : "#ffffff",       //二维码的后景色
+	                      foreground : "#00aa00"       //二维码的前景色
+	                                 //二维码中间的图片
+	              });
+	 }
+	 init();
+	 
+     function  getD1(){
+		 var date = new Date(); 
+		var hour = date.getHours();
+		var minute = date.getMinutes();
+		var second = date.getSeconds();
+		var s=color[parseInt(Math.random()*color.length)];
+         var d1=hour+s+minute+s+second		
+         var div1=document.getElementById("times");
+         div1.innerHTML =d1;
+ 
+     }
+ 
+     setInterval("getD1();",500);
+	 
+ function getUrlVars() {
+     var vars = [], hash;
+     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+     for (var i = 0; i < hashes.length; i++) {
+          hash = hashes[i].split('=');
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+     }
+     return vars;
+ } 
+ 
+ 
+    </script>
+<script type="text/javascript">
+ 
+   
+ 
+</script>
+
+</body>
+</html>
